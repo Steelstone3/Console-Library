@@ -12,6 +12,7 @@ namespace ConsoleLibraryTests.Models
         {
             // Then
             Assert.NotNull(consoleInterface.TextPrinter);
+            Assert.NotNull(consoleInterface.TextParser);
         }
     }
 }

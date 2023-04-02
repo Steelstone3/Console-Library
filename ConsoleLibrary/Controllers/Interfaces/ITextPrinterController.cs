@@ -1,6 +1,6 @@
 using ConsoleLibrary.Models;
 
-namespace ConsoleLibrary.Controllers
+namespace ConsoleLibrary.Controllers.Interfaces
 {
     public interface ITextPrinterController
     {

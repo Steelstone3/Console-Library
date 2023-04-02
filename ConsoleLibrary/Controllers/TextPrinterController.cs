@@ -1,4 +1,5 @@
 using System;
+using ConsoleLibrary.Controllers.Interfaces;
 using ConsoleLibrary.Models;
 
 namespace ConsoleLibrary.Controllers

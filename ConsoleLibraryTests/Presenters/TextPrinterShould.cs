@@ -1,4 +1,4 @@
-using ConsoleLibrary.Controllers;
+using ConsoleLibrary.Controllers.Interfaces;
 using ConsoleLibrary.Models;
 using ConsoleLibrary.Presenters;
 using ConsoleLibrary.Presenters.Interfaces;

@@ -13,6 +13,6 @@ namespace ConsoleLibrary.Presenters
         }
 
         public ITextPrinter TextPrinter => new TextPrinter(consoleInterface);
-        public ITextParser TextParser => new TextParser();
+        public ITextParser TextParser => new TextParser(consoleInterface);
     }
 }
