@@ -1,3 +1,4 @@
+using ConsoleLibrary.Controllers;
 using ConsoleLibrary.Models;
 using ConsoleLibrary.Presenters;
 using ConsoleLibrary.Presenters.Interfaces;
@@ -10,10 +11,12 @@ namespace ConsoleLibraryTests.Presenters
     {
         private const string MESSAGE = "Hello";
         private readonly Mock<IConsoleInterface> consoleInterface = new();
+        private readonly Mock<ITextPrinterController> textPrinterController = new();
         private readonly ITextPrinter textPrinter;
 
         public TextPrinterShould()
         {
+            consoleInterface.Setup(ci => ci.TextPrinter).Returns(textPrinterController.Object);
             textPrinter = new TextPrinter(consoleInterface.Object);
         }
 
@@ -21,7 +24,7 @@ namespace ConsoleLibraryTests.Presenters
         public void PrintMessage()
         {
             // Given
-            consoleInterface.Setup(ci => ci.WriteLine(MESSAGE));
+            textPrinterController.Setup(ci => ci.WriteLine(MESSAGE));
 
             // When
             textPrinter.Print(MESSAGE);
@@ -34,7 +37,7 @@ namespace ConsoleLibraryTests.Presenters
         public void PrintColourfulAnsiColourMessage()
         {
             // Given
-            consoleInterface.Setup(ci => ci.WriteLine(MESSAGE, Colour.RED));
+            textPrinterController.Setup(ci => ci.WriteLine(MESSAGE, Colour.RED));
 
             // When
             textPrinter.Print(MESSAGE, Colour.RED);

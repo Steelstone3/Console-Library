@@ -14,12 +14,12 @@ namespace ConsoleLibrary.Presenters
 
         public void Print(string message)
         {
-            consoleInterface.WriteLine(message);
+            consoleInterface.TextPrinter.WriteLine(message);
         }
 
         public void Print(string message, Colour colour)
         {
-            consoleInterface.WriteLine(message, colour);
+            consoleInterface.TextPrinter.WriteLine(message, colour);
         }
     }
 }
