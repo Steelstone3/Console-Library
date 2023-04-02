@@ -11,5 +11,8 @@ namespace ConsoleLibrary.Presenters
         {
             this.consoleInterface = consoleInterface;
         }
+
+        public string Read(string message) => consoleInterface.TextParser.Read(message);
+        public string Read(string message, string regex) => consoleInterface.TextParser.Read(message, regex);
     }
 }

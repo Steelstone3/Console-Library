@@ -12,14 +12,7 @@ namespace ConsoleLibrary.Presenters
             this.consoleInterface = consoleInterface;
         }
 
-        public void Print(string message)
-        {
-            consoleInterface.TextPrinter.WriteLine(message);
-        }
-
-        public void Print(string message, Colour colour)
-        {
-            consoleInterface.TextPrinter.WriteLine(message, colour);
-        }
+        public void Print(string message) => consoleInterface.TextPrinter.WriteLine(message);
+        public void Print(string message, Colour colour) => consoleInterface.TextPrinter.WriteLine(message, colour);
     }
 }

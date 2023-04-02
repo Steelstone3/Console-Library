@@ -24,7 +24,7 @@ namespace ConsoleLibraryTests.Presenters
         public void PrintMessage()
         {
             // Given
-            textPrinterController.Setup(ci => ci.WriteLine(MESSAGE));
+            textPrinterController.Setup(tpc => tpc.WriteLine(MESSAGE));
 
             // When
             textPrinter.Print(MESSAGE);
@@ -37,7 +37,7 @@ namespace ConsoleLibraryTests.Presenters
         public void PrintColourfulAnsiColourMessage()
         {
             // Given
-            textPrinterController.Setup(ci => ci.WriteLine(MESSAGE, Colour.RED));
+            textPrinterController.Setup(tpc => tpc.WriteLine(MESSAGE, Colour.RED));
 
             // When
             textPrinter.Print(MESSAGE, Colour.RED);

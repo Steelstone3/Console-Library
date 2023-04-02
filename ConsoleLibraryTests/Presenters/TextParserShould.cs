@@ -1,3 +1,4 @@
+using System.Diagnostics.Metrics;
 using ConsoleLibrary.Controllers.Interfaces;
 using ConsoleLibrary.Models;
 using ConsoleLibrary.Presenters;
@@ -20,14 +21,33 @@ namespace ConsoleLibraryTests.Presenters
             textParser = new TextParser(consoleInterface.Object);
         }
 
-        [Fact(Skip="skip")]
-        public void Read()
+        [Fact]
+        public void ReadString()
         {
             // Given
+            string expectedOutput = "Some Output";
+            textParserController.Setup(tpc => tpc.Read(MESSAGE)).Returns(expectedOutput);
 
             // When
+            string output = textParser.Read(MESSAGE);
 
             // Then
+            consoleInterface.VerifyAll();
+        }
+
+        [Fact]
+        public void ReadStringWithRegex()
+        {
+            // Given
+            string expectedOutput = "Some Output";
+            string regex = "Some Regex";
+            textParserController.Setup(tpc => tpc.Read(MESSAGE, regex)).Returns(expectedOutput);
+
+            // When
+            string output = textParser.Read(MESSAGE, regex);
+
+            // Then
+            consoleInterface.VerifyAll();
         }
     }
 }
