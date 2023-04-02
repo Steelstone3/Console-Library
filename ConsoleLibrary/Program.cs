@@ -15,8 +15,9 @@ namespace BubblesDivePlanner
             presenter.TextPrinter.Print("Hello", Colour.YELLOW);
             presenter.TextPrinter.Print("Hello", Colour.BLUE);
             presenter.TextParser.Read("Enter Name:");
-            presenter.TextParser.Read("Enter Name:", @"[^0-9a-zA-Z]+");
+            presenter.TextParser.Read("Enter Name:", "[^0-9a-zA-Z]+");
             presenter.TextPrinter.Print("Hello", Colour.BLUE);
+            presenter.TextParser.Read("Get Int32:", 1, 99);
 
             // string NL          = Environment.NewLine; // shortcut
             // string NORMAL      = Console.IsOutputRedirected ? "" : "\x1b[39m";

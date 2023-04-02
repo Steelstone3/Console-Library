@@ -1,4 +1,3 @@
-using System.Diagnostics.Metrics;
 using ConsoleLibrary.Controllers.Interfaces;
 using ConsoleLibrary.Models;
 using ConsoleLibrary.Presenters;
@@ -25,26 +24,44 @@ namespace ConsoleLibraryTests.Presenters
         public void ReadString()
         {
             // Given
-            string expectedOutput = "Some Output";
-            textParserController.Setup(tpc => tpc.Read(MESSAGE)).Returns(expectedOutput);
+            const string expectedInput = "Some Input";
+            textParserController.Setup(tpc => tpc.Read(MESSAGE)).Returns(expectedInput);
 
             // When
-            string output = textParser.Read(MESSAGE);
+            string input = textParser.Read(MESSAGE);
 
             // Then
             consoleInterface.VerifyAll();
+            Assert.NotEmpty(input);
         }
 
         [Fact]
         public void ReadStringWithRegex()
         {
             // Given
-            string expectedOutput = "Some Output";
-            string regex = "Some Regex";
-            textParserController.Setup(tpc => tpc.Read(MESSAGE, regex)).Returns(expectedOutput);
+            const string expectedInput = "Some Input";
+            const string regex = "Some Regex";
+            textParserController.Setup(tpc => tpc.Read(MESSAGE, regex)).Returns(expectedInput);
 
             // When
-            string output = textParser.Read(MESSAGE, regex);
+            string input = textParser.Read(MESSAGE, regex);
+
+            // Then
+            consoleInterface.VerifyAll();
+            Assert.NotEmpty(input);
+        }
+
+        [Fact]
+        public void ReadInt32()
+        {
+            // Given
+            const int expectedInput = 32;
+            const int minimumValue = 2;
+            const int maximumValue = 100;
+            textParserController.Setup(tpc => tpc.Read(MESSAGE, minimumValue, maximumValue)).Returns(expectedInput);
+
+            // When
+            int input = textParser.Read(MESSAGE, minimumValue, maximumValue);
 
             // Then
             consoleInterface.VerifyAll();
