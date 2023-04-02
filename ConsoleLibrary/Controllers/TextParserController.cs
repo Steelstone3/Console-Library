@@ -43,11 +43,11 @@ namespace ConsoleLibrary.Controllers
                 }
                 else if (IsGreaterThanMaximum(maximumValue, value))
                 {
-                    Console.WriteLine($"Error: {input} is greater than {maximumValue}");
+                    Console.WriteLine($"Error: {input} is greater than {maximumValue} where value is {value}");
                 }
                 else
                 {
-                    Console.WriteLine($"Error: {input} is less than {minimumValue}");
+                    Console.WriteLine($"Error: {input} is less than {minimumValue} where value is {value}");
                 }
 
                 input = GetInput(message);
